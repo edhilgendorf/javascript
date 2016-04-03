@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Javascript | Tic-Tac-Toe</title>
+	<link href="greg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    var boxID = "";
+    var box = "";
+function setColor(boxID)
+{
+    var player = document.getElementById(boxID).value;
+    player = player.toLowerCase();
+    document.getElementById(boxID).value = player;
+	if (player=="x")
+		setYellow(boxID);
+if (player == "o")
+    setOrange(boxID);
+}
+function setYellow(boxID)
+{
+	document.getElementById(boxID).style.background = "yellow";
+}
+function setOrange(boxID)
+{
+	document.getElementById(boxID).style.background = "blue";
+}
+
+function clearIt() {document.getElementById('tta1').value = "";
+    document.getElementById('tta2').value = "";
+    document.getElementById('tta3').value = "";
+    document.getElementById('ttb1').value = "";
+    document.getElementById('ttb2').value = "";
+    document.getElementById('ttb3').value = "";
+    document.getElementById('ttc1').value = "";
+    document.getElementById('ttc2').value = "";
+    document.getElementById('ttc3').value = "";}
+
+function xWinz() {alert("X wins!");clearIt();}
+function oWinz() {alert("O wins!");clearIt();}
+
+function ckit(box) {
+    var count = 0;
+    var txt = document.getElementById(box).value;
+    setColor(box);
+    
+
+    var a1 = document.getElementById('tta1').value;
+    var a2 = document.getElementById('tta2').value;
+    var a3 = document.getElementById('tta3').value;
+    var b1 = document.getElementById('ttb1').value;
+    var b2 = document.getElementById('ttb2').value;
+    var b3 = document.getElementById('ttb3').value;
+    var c1 = document.getElementById('ttc1').value;
+    var c2 = document.getElementById('ttc2').value;
+    var c3 = document.getElementById('ttc3').value;
+
+    if ((a1 == 'x') && (a2 == 'x') && (a3 == 'x')) {xWinz();}
+    else if ((b1 == 'x') && (b2 == 'x') && (b3 == 'x')) {xWinz();}
+    else if ((c1 == 'x') && (c2 == 'x') && (c3 == 'x')) { xWinz(); }
+    else if ((a1 == 'x') && (b1 == 'x') && (c1 == 'x')) { xWinz(); }
+    else if ((a2 == 'x') && (b2 == 'x') && (c2 == 'x')) { xWinz(); }
+    else if ((a3 == 'x') && (b3 == 'x') && (c3 == 'x')) { xWinz(); }
+    else if ((a1 == 'x') && (b2 == 'x') && (c3 == 'x')) { xWinz(); }
+    else if ((a3 == 'x') && (b2 == 'x') && (c1 == 'x')) { xWinz(); }
+
+    else if ((a1 == 'o') && (a2 == 'o') && (a3 == 'o')) { oWinz(); }
+    else if ((b1 == 'o') && (b2 == 'o') && (b3 == 'o')) { oWinz(); }
+    else if ((c1 == 'o') && (c2 == 'o') && (c3 == 'o')) { oWinz(); }
+    else if ((a1 == 'o') && (b1 == 'o') && (c1 == 'o')) { oWinz(); }
+    else if ((a2 == 'o') && (b2 == 'o') && (c2 == 'o')) { oWinz(); }
+    else if ((a3 == 'o') && (b3 == 'o') && (c3 == 'o')) { oWinz(); }
+    else if ((a1 == 'o') && (b2 == 'o') && (c3 == 'o')) { oWinz(); }
+    else if ((a3 == 'o') && (b2 == 'o') && (c1 == 'o')) { oWinz(); }
+
+}
+
+
+
+    ///Sciptere
+
+</script>
+</head>
+
+<body>
+<div id="container">
+
+ <h1 id="logo"><em>Tic-Tac-Toe</em></h1>
+ <p>&nbsp;</p>
+
+<div id="content">
+
+<input type="text" name="tta1" id="tta1" maxlength = "1" size="1" value="" />
+<input type="button" onclick= "ckit('tta1');" value="ok"  /></button>
+<input type="text" name="tta2" id="tta2" maxlength = "1" size="1" value="" />
+<input type="button" onclick= "ckit('tta2');" value="ok"  /></button>
+<input type="text" name="tta3" id="tta3" size="1"maxlength = "1"  value="" />
+<input type="button" onclick="ckit('tta3');" value="ok"  /></button>
+<br />
+<input type="text" name="ttb1" id="ttb1" size="1" maxlength = "1"  value="" />
+<input type="button" onclick= "ckit('ttb1');" value="ok"  /></button>
+<input type="text" name="ttb2" id="ttb2" size="1" maxlength = "1" value="" />
+<input type="button" onclick="ckit('ttb2');" value="ok"  /></button>
+<input type="text" name="ttb3" id="ttb3" size="1" maxlength = "1" value="" />
+<input type="button" onclick=" ckit('ttb3');" value="ok"  /></button>
+<br  />
+<input type="text" name="ttc1" id="ttc1" size="1" maxlength = "1" value="" />
+<input type="button" onclick="ckit('ttc1');" value="ok"  /></button>
+<input type="text" name "ttc2" id="ttc2" size="1" maxlength = "1" value="" />
+<input type="button" onclick=" ckit('ttc2');" value="ok"  /></button>
+<input type="text" name="ttc3" id="ttc3" size="1" maxlength = "1" value="" />
+<input type="button" onclick="ckit('ttc3');" value="ok"  /></button>
+
+
+</div>
+
+</div>
+</body>
+</html>

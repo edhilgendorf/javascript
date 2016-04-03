@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Greg's Gambits</title>
+<link href="greg.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript" src="gregSource.js"></script>
+<script type="text/javascript" src="gregBoggle.js"></script>
+
+<script type="text/javascript">
+        /*var end = "";
+        function timeUp(){
+            var end = "Q";
+            return end;
+        }
+            function testMe(){
+            end = setTimeout(timeUp, 3000);
+        }       
+
+*/
+    function boggle(){ 
+  //      testMe();
+        var play = "";
+        var score = 0;
+        var flag = 0;
+        var num = Math.floor(Math.random() * 5) + 1;
+        compWords = new Array();
+        notAword = new Array();
+        playWords = new Array();
+        compWords = words(num);
+        yourWord = compWords[0];
+        
+
+        document.getElementById("letters").innerHTML = yourWord;
+        end = "";
+        //get players entries
+        
+        while (play != "Q") 
+        {
+            if (end == "Q")
+                {alert("timeup");}
+            play = prompt("Enter a word, enter Q when finished");
+            playWords.push(play);
+
+            if (play != "Q") {
+                document.getElementById("entries").innerHTML = playWords.toString();
+            }
+            //check winning score and display bad words
+            var complength = compWords.length;
+            var playlength = (playWords.length - 1);
+            for (var i = 0; i < playlength; i++) {
+                flag = 0;
+                for (var k = 0; k < complength; k++) {
+                    if (playWords[i] == compWords[k]) {
+                        score++;
+                        flag = 1;
+                    }
+                }
+            }
+            if (flag == 0)
+            notAword.push(playWords[i]);    
+        }
+        document.getElementById("result").innerHTML = ("Your score  is " + score + ". The following entries are not valid words: <br />" + notAword.toString());
+     }
+
+</script>
+
+</head>
+<body>
+<div id="container">
+
+ <img src="superhero.jpg" width="120" height="120" class="floatleft" />
+ <h1 id="logo"><em>Greg's Gambits </em></h1>
+  
+<h2 align="center"><em>Boggle</em></h2>
+
+<p>&nbsp;</p>
+<div id="nav">
+  <p><a href="index.html">Home</a>
+  <a href="greg.html">About Greg</a>
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="aboutyou.html">Tell Greg About You</a></p>
+</div>
+<div id="content">
+ <p>Create words from scrambled letters.</p>
+ <p><input type ="button" value = "Start Boggle" onclick = "boggle()" /> </p>
+ 
+ <h2>Letters to use: <br /><div id = "letters">&nbsp;</div><br /></h2>
+
+ <h2>Words so far:<br /><div id = "entries">&nbsp;</div><br /></h2>
+
+  <h2>Result:<br /><div id = "result">&nbsp;</div><br /></h2>
+
+</div>
+<div id="footer">Copyright &copy; 2013 Greg's Gambits<br />
+<a href="mailto:greg@greggambi.com">GregGambit</a></div>
+</div>
+</body>
+</html>
